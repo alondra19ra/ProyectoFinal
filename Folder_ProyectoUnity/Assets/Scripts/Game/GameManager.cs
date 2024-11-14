@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(context.phase);
         if (context.performed)
         {
-            CurrentGameobject(inventory.GetAtPosition(0));
+            ScaleGameobject(inventory.GetAtPosition(0));
         }
     }
 
@@ -50,14 +50,14 @@ public class GameManager : MonoBehaviour
     {
         if (context.performed)
         {
-            CurrentGameobject(inventory.GetAtPosition(1));
+            ScaleGameobject(inventory.GetAtPosition(1));
         }
     }
     public void Containers3(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            CurrentGameobject(inventory.GetAtPosition(2));
+            ScaleGameobject(inventory.GetAtPosition(2));
         }
     }
 
@@ -65,10 +65,10 @@ public class GameManager : MonoBehaviour
     {
         if (context.performed)
         {
-            CurrentGameobject(inventory.GetAtPosition(3));
+            ScaleGameobject(inventory.GetAtPosition(3));
         }
     }
-    private void CurrentGameobject(GameObject go)
+    private void ScaleGameobject(GameObject go)
     {
        
         currentgameobject.transform.localScale = InicialScale;
