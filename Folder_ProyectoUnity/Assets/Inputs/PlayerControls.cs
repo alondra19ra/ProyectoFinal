@@ -37,9 +37,36 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Jump"",
+                    ""name"": ""Containers1"",
                     ""type"": ""Button"",
-                    ""id"": ""3aee0669-e1a3-4b6b-a081-54b696d375a8"",
+                    ""id"": ""4cc142f5-b81a-4771-b506-691192479ea3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Containers2"",
+                    ""type"": ""Button"",
+                    ""id"": ""61da57ee-2c1b-4064-87b0-aa118f8599e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Containers3"",
+                    ""type"": ""Button"",
+                    ""id"": ""5b3433a2-9102-43b4-a66f-8ad0f6393e43"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Containers4"",
+                    ""type"": ""Button"",
+                    ""id"": ""461c5cce-1fb2-40a4-bb24-80ba119c8bad"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -64,7 +91,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Computer"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -75,7 +102,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Computer"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -86,7 +113,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Computer"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -97,31 +124,79 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Computer"",
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6493a08f-d880-46c7-b5c0-530b790839c4"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""b412381a-988c-4d19-a4cd-90536920840f"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
+                    ""groups"": ""Computer"",
+                    ""action"": ""Containers1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35d746d5-e71c-429e-91b4-0aed807adf4f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Computer"",
+                    ""action"": ""Containers2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dae7d813-315d-4d35-ba37-86cf6046a9f9"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Computer"",
+                    ""action"": ""Containers3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19dda65b-17c5-4997-a301-726168136340"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Computer"",
+                    ""action"": ""Containers4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Computer"",
+            ""bindingGroup"": ""Computer"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Containers1 = m_Player.FindAction("Containers1", throwIfNotFound: true);
+        m_Player_Containers2 = m_Player.FindAction("Containers2", throwIfNotFound: true);
+        m_Player_Containers3 = m_Player.FindAction("Containers3", throwIfNotFound: true);
+        m_Player_Containers4 = m_Player.FindAction("Containers4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -184,13 +259,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Containers1;
+    private readonly InputAction m_Player_Containers2;
+    private readonly InputAction m_Player_Containers3;
+    private readonly InputAction m_Player_Containers4;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
         public PlayerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Containers1 => m_Wrapper.m_Player_Containers1;
+        public InputAction @Containers2 => m_Wrapper.m_Player_Containers2;
+        public InputAction @Containers3 => m_Wrapper.m_Player_Containers3;
+        public InputAction @Containers4 => m_Wrapper.m_Player_Containers4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -203,9 +284,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Jump.started += instance.OnJump;
-            @Jump.performed += instance.OnJump;
-            @Jump.canceled += instance.OnJump;
+            @Containers1.started += instance.OnContainers1;
+            @Containers1.performed += instance.OnContainers1;
+            @Containers1.canceled += instance.OnContainers1;
+            @Containers2.started += instance.OnContainers2;
+            @Containers2.performed += instance.OnContainers2;
+            @Containers2.canceled += instance.OnContainers2;
+            @Containers3.started += instance.OnContainers3;
+            @Containers3.performed += instance.OnContainers3;
+            @Containers3.canceled += instance.OnContainers3;
+            @Containers4.started += instance.OnContainers4;
+            @Containers4.performed += instance.OnContainers4;
+            @Containers4.canceled += instance.OnContainers4;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -213,9 +303,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Jump.started -= instance.OnJump;
-            @Jump.performed -= instance.OnJump;
-            @Jump.canceled -= instance.OnJump;
+            @Containers1.started -= instance.OnContainers1;
+            @Containers1.performed -= instance.OnContainers1;
+            @Containers1.canceled -= instance.OnContainers1;
+            @Containers2.started -= instance.OnContainers2;
+            @Containers2.performed -= instance.OnContainers2;
+            @Containers2.canceled -= instance.OnContainers2;
+            @Containers3.started -= instance.OnContainers3;
+            @Containers3.performed -= instance.OnContainers3;
+            @Containers3.canceled -= instance.OnContainers3;
+            @Containers4.started -= instance.OnContainers4;
+            @Containers4.performed -= instance.OnContainers4;
+            @Containers4.canceled -= instance.OnContainers4;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -233,9 +332,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+    private int m_ComputerSchemeIndex = -1;
+    public InputControlScheme ComputerScheme
+    {
+        get
+        {
+            if (m_ComputerSchemeIndex == -1) m_ComputerSchemeIndex = asset.FindControlSchemeIndex("Computer");
+            return asset.controlSchemes[m_ComputerSchemeIndex];
+        }
+    }
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnJump(InputAction.CallbackContext context);
+        void OnContainers1(InputAction.CallbackContext context);
+        void OnContainers2(InputAction.CallbackContext context);
+        void OnContainers3(InputAction.CallbackContext context);
+        void OnContainers4(InputAction.CallbackContext context);
     }
 }
