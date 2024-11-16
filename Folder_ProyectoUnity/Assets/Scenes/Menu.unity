@@ -155,8 +155,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2083087980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -231,7 +231,7 @@ RectTransform:
   m_Father: {fileID: 1477853119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -439,8 +439,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 991289584}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -769,7 +769,7 @@ RectTransform:
   m_Father: {fileID: 1336396536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1074,6 +1074,7 @@ GameObject:
   - component: {fileID: 665128778}
   - component: {fileID: 665128780}
   - component: {fileID: 665128779}
+  - component: {fileID: 665128781}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -1097,7 +1098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -6, y: -276}
+  m_AnchoredPosition: {x: 0, y: -343.83}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665128779
@@ -1197,6 +1198,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 665128777}
   m_CullTransparentMesh: 1
+--- !u!114 &665128781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665128777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d26dca3cd52d6948b1d76c02b5f593c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve: 24
+  velocity: 1
 --- !u!1 &711769987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,13 +1223,14 @@ GameObject:
   - component: {fileID: 711769988}
   - component: {fileID: 711769990}
   - component: {fileID: 711769989}
+  - component: {fileID: 711769991}
   m_Layer: 5
   m_Name: MenuPrincipal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &711769988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1276,6 +1292,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711769987}
   m_CullTransparentMesh: 1
+--- !u!114 &711769991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711769987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d26dca3cd52d6948b1d76c02b5f593c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve: 26
+  velocity: 2
 --- !u!1 &917720294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,7 +2545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1666145658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3119,6 +3149,7 @@ GameObject:
   - component: {fileID: 2113870963}
   - component: {fileID: 2113870962}
   - component: {fileID: 2113870961}
+  - component: {fileID: 2113870964}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -3240,6 +3271,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113870959}
   m_CullTransparentMesh: 1
+--- !u!114 &2113870964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113870959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d26dca3cd52d6948b1d76c02b5f593c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve: 24
+  velocity: 2
 --- !u!1 &2133107861
 GameObject:
   m_ObjectHideFlags: 0
