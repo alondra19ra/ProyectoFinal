@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UserPowerUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""1cd64d91-1ec2-4f3a-80ff-97d425abfbb7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Containers4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2557e46-f001-434b-974f-0fc1b396e6a3"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Computer"",
+                    ""action"": ""UserPowerUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +217,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Containers2 = m_Player.FindAction("Containers2", throwIfNotFound: true);
         m_Player_Containers3 = m_Player.FindAction("Containers3", throwIfNotFound: true);
         m_Player_Containers4 = m_Player.FindAction("Containers4", throwIfNotFound: true);
+        m_Player_UserPowerUp = m_Player.FindAction("UserPowerUp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -263,6 +284,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Containers2;
     private readonly InputAction m_Player_Containers3;
     private readonly InputAction m_Player_Containers4;
+    private readonly InputAction m_Player_UserPowerUp;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -272,6 +294,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Containers2 => m_Wrapper.m_Player_Containers2;
         public InputAction @Containers3 => m_Wrapper.m_Player_Containers3;
         public InputAction @Containers4 => m_Wrapper.m_Player_Containers4;
+        public InputAction @UserPowerUp => m_Wrapper.m_Player_UserPowerUp;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -296,6 +319,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Containers4.started += instance.OnContainers4;
             @Containers4.performed += instance.OnContainers4;
             @Containers4.canceled += instance.OnContainers4;
+            @UserPowerUp.started += instance.OnUserPowerUp;
+            @UserPowerUp.performed += instance.OnUserPowerUp;
+            @UserPowerUp.canceled += instance.OnUserPowerUp;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -315,6 +341,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Containers4.started -= instance.OnContainers4;
             @Containers4.performed -= instance.OnContainers4;
             @Containers4.canceled -= instance.OnContainers4;
+            @UserPowerUp.started -= instance.OnUserPowerUp;
+            @UserPowerUp.performed -= instance.OnUserPowerUp;
+            @UserPowerUp.canceled -= instance.OnUserPowerUp;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -348,5 +377,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnContainers2(InputAction.CallbackContext context);
         void OnContainers3(InputAction.CallbackContext context);
         void OnContainers4(InputAction.CallbackContext context);
+        void OnUserPowerUp(InputAction.CallbackContext context);
     }
 }

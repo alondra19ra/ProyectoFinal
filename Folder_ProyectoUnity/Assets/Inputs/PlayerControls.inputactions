@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UserPowerUp",
+                    "type": "Button",
+                    "id": "1cd64d91-1ec2-4f3a-80ff-97d425abfbb7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -148,6 +157,17 @@
                     "processors": "",
                     "groups": "Computer",
                     "action": "Containers4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2557e46-f001-434b-974f-0fc1b396e6a3",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Computer",
+                    "action": "UserPowerUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

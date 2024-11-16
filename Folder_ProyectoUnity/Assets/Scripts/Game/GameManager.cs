@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     SimpleLinkList<GameObject> inventory;
@@ -34,7 +35,12 @@ public class GameManager : MonoBehaviour
 
     public void Add(GameObject go)
     {
-
+        Medikit medikit = go.GetComponent<Medikit>();
+        if (medikit != null)
+        {
+            currentgameobject.GetComponent<Image>().sprite = medikit.GetSprite();
+            currentgameobject.AddComponent<Medikit>();
+        }
     }
 
     public void Containers1(InputAction.CallbackContext context)
@@ -68,6 +74,18 @@ public class GameManager : MonoBehaviour
             ScaleGameobject(inventory.GetAtPosition(3));
         }
     }
+    public void UserPowerUp(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if(currentgameobject.GetComponent<Medikit>() != null)
+            {
+                currentgameobject.GetComponent<Medikit>().UserHealth();
+                currentgameobject.GetComponent<Image>().sprite = null;
+                Destroy(currentgameobject.GetComponent<Medikit>());
+            }
+        }
+    }
     private void ScaleGameobject(GameObject go)
     {
        
@@ -75,6 +93,5 @@ public class GameManager : MonoBehaviour
         currentgameobject = go;
         InicialScale = currentgameobject.transform.localScale;
         currentgameobject.transform.localScale = NewScale;   
-        
     }
 }
